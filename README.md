@@ -65,11 +65,3 @@ A apresentação técnica está dividida em 3 partes fundamentais.
     * Explicar que o uso do `?` (Placeholder) faz com que o banco trate a entrada estritamente como dado, e não como comando, neutralizando ataques como `' OR '1'='1`.
 * **Prevenção de XSS (Cross-Site Scripting):**
     * Explicar que o EJS faz o "escape" automático de caracteres especiais. Se alguém tentar inserir `<script>alert('hack')</script>`, o sistema converte para texto seguro (`&lt;script&gt;`) antes de enviar ao navegador.
-
-## 🧪 Credenciais para Teste
-
-Para validar as diferentes permissões e o acesso às rotas protegidas:
-
-Perfil,Usuário,Senha,Acesso Permitido
-Estudante,aluno,Aluno@2025!Sup3rS3cur3,"/alunos, /busca"
-Docente,professor,Prof#2025$H4rdP4ssw0rd,"/professores, /busca"
