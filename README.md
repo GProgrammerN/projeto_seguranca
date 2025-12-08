@@ -1,6 +1,6 @@
 # Projeto de Segurança em Aplicações Web (Node.js + SQLite)
 
-Este projeto consiste em uma aplicação Web desenvolvida para demonstrar a implementação prática de mecanismos de segurança e defesa contra as principais vulnerabilidades listadas na OWASP Top 10, como SQL Injection, Cross-Site Scripting (XSS), Quebra de Controle de Acesso e Falhas Criptográficas.
+Este projeto consiste em uma aplicação Web desenvolvida para demonstrar a implementação prática de mecanismos de segurança e defesa contra vulnerabilidades críticas, focando em SQL Injection, Cross-Site Scripting (XSS), Controle de Acesso e Criptografia.
 
 A aplicação simula um portal acadêmico com áreas restritas para Alunos e Professores, além de uma busca pública de cursos com dados sensíveis criptografados.
 
