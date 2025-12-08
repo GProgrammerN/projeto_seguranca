@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head><title>Busca de Cursos</title></head>
+<body>
+    <h1>Pesquisa de Cursos</h1>
+    <a href="/login">Área Restrita</a>
+    <hr>
+    
+    <form action="/busca" method="GET">
+        <input type="text" name="search" value="<%= searchTerm %>" placeholder="Nome do curso...">
+        <button type="submit">Pesquisar</button>
+    </form>
+
+    <h3>Resultados:</h3>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Nível</th>
+                <th>Duração</th>
+                <th>Período</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (courses.length === 0) { %>
+                <tr><td colspan="4">Nenhum resultado.</td></tr>
+            <% } %>
+            <% courses.forEach(function(course) { %>
+                <tr>
+                    <td><%= course.name %></td>
+                    <td><%= course.level %></td>
+                    <td><%= course.duration %></td>
+                    <td><%= course.period %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
