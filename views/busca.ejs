@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head><title>Busca de Cursos</title></head>
-<body>
+<head>
+    <title>Busca de Cursos</title>
+    <style>
+        .bg-student { background-color: #e0f7fa; }
+        .bg-teacher { background-color: #f1f8e9; }
+        .bg-public  { background-color: #ffffff; }
+        
+        body { font-family: sans-serif; padding: 20px; }
+    </style>
+</head>
+
+<body class="<%= role === 'student' ? 'bg-student' : (role === 'teacher' ? 'bg-teacher' : 'bg-public') %>">
+
     <h1>Pesquisa de Cursos</h1>
-    <a href="/login">Área Restrita</a>
+
+    <% if (role === 'student') { %>
+        <p><strong>Status:</strong> Logado como Aluno (Visualização Estudante)</p>
+        <a href="/alunos">Ir para Portal do Aluno</a> | <a href="/logout">Sair</a>
+    <% } else if (role === 'teacher') { %>
+        <p><strong>Status:</strong> Logado como Professor (Visualização Docente)</p>
+        <a href="/professores">Ir para Portal do Professor</a> | <a href="/logout">Sair</a>
+    <% } else { %>
+        <p><strong>Status:</strong> Visitante</p>
+        <a href="/login">Fazer Login</a>
+    <% } %>
+
     <hr>
     
     <form action="/busca" method="GET">
-        <input type="text" name="search" value="<%= searchTerm %>" placeholder="Nome do curso...">
-        <button type="submit">Pesquisar</button>
+        <input type="text" name="search" value="<%= searchTerm %>" placeholder="Nome do curso..." style="padding: 5px; width: 300px;">
+        <button type="submit" style="padding: 5px;">Pesquisar</button>
     </form>
 
     <h3>Resultados:</h3>
 
-    <table border="1">
+    <table border="1" cellpadding="10" style="border-collapse: collapse; background-color: white;">
         <thead>
-            <tr>
+            <tr style="background-color: #ddd;">
                 <th>Nome</th>
                 <th>Nível</th>
                 <th>Duração</th>
@@ -24,7 +46,7 @@
         </thead>
         <tbody>
             <% if (courses.length === 0) { %>
-                <tr><td colspan="4">Nenhum resultado.</td></tr>
+                <tr><td colspan="4">Nenhum resultado encontrado.</td></tr>
             <% } %>
             <% courses.forEach(function(course) { %>
                 <tr>

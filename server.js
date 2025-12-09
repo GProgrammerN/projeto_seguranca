@@ -92,7 +92,8 @@ app.get('/busca', (req, res) => {
 
         res.render('busca', { 
             courses: filteredCourses, 
-            searchTerm: searchTerm 
+            searchTerm: searchTerm,
+            role: req.session && req.session.userId ? req.session.role : null
         });
     });
 });
